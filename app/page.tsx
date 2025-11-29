@@ -143,6 +143,15 @@ export default function Portfolio() {
     setLightboxOpen(true)
   }
 
+  const downloadCV = () => {
+    const link = document.createElement("a")
+    link.href = "/Dr_Amruta_Desai_resume.pdf"
+    link.download = "Dr_Amruta_Desai_resume.pdf"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   // Gallery auto-rotation
   useEffect(() => {
     const galleryImages = [
@@ -224,7 +233,10 @@ export default function Portfolio() {
                 Plant Breeding • Biotechnology • Plant Pathology • Molecular Biology Researcher
               </p>
               <div className="flex gap-4 pt-4">
-                <Button className="bg-blue-accent hover:bg-blue-accent/90 text-white cursor-pointer">
+                <Button 
+                  onClick={downloadCV}
+                  className="bg-blue-accent hover:bg-blue-accent/90 text-white cursor-pointer"
+                >
                   <Download className="size-4 mr-2" />
                   Download CV
                 </Button>
